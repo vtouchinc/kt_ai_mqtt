@@ -1,6 +1,6 @@
 FROM node:12
 
-RUN apt-get update && apt-get -y install net-tools curl
+RUN apt-get update && apt-get -y install net-tools curl mosquitto-clients
 
 # 앱 디렉터리 생성
 WORKDIR /usr/src/app
