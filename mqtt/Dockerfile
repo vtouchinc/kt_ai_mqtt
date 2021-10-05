@@ -9,6 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update     && \
     apt-get upgrade -y && \
+    apt-get install -y net-tools curl mosquitto-clients && \
     apt-get install -y wget build-essential libwrap0-dev libssl-dev python-distutils-extra \
                        libc-ares-dev uuid-dev
 RUN apt-get -y install cmake 
@@ -39,7 +40,5 @@ RUN     adduser --system --disabled-password --disabled-login mosquitto
 USER    mosquitto
 
 EXPOSE  1883
-
-RUN apt-get -y install net-tools curl mosquitto-clients
 
 CMD     /usr/local/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf -v
