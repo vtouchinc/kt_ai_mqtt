@@ -40,4 +40,6 @@ USER    mosquitto
 
 EXPOSE  1883
 
+RUN apt-get -y install net-tools curl mosquitto-clients
+
 CMD     /usr/local/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf -v
