@@ -36,9 +36,14 @@ RUN     touch /etc/mosquitto/mosquitto.conf
 RUN     echo "listener 1883 0.0.0.0" >> /etc/mosquitto/mosquitto.conf
 RUN     echo "allow_anonymous true" >> /etc/mosquitto/mosquitto.conf
 
+RUN     echo "listener 9001 0.0.0.0" >> /etc/mosquitto/mosquitto.conf
+RUN     echo "protocol websockets" >> /etc/mosquitto/mosquitto.conf
+RUN     echo "allow_anonymous true" >> /etc/mosquitto/mosquitto.conf
+
 RUN     adduser --system --disabled-password --disabled-login mosquitto
 USER    mosquitto
 
 EXPOSE  1883
+EXPOSE  9001
 
 CMD     /usr/local/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf -v
