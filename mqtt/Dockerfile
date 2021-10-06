@@ -11,7 +11,7 @@ RUN apt-get update     && \
     apt-get upgrade -y && \
     apt-get install -y net-tools curl mosquitto-clients && \
     apt-get install -y wget build-essential libwrap0-dev libssl-dev python-distutils-extra \
-                       libc-ares-dev uuid-dev
+                       libc-ares-dev uuid-dev libwebsockets-dev
 RUN apt-get -y install cmake 
 RUN apt-get install -y zip
 
