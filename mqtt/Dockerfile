@@ -29,6 +29,8 @@ RUN     wget http://mosquitto.org/files/source/mosquitto-2.0.11.tar.gz
 RUN     tar xvzf ./mosquitto-2.0.11.tar.gz
 
 WORKDIR /usr/local/src/mosquitto-2.0.11
+COPY ./config.mk .
+
 RUN     make && make install
 RUN     ldconfig 
 
